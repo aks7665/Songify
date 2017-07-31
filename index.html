@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Song App</title>
+    <link rel="stylesheet" type="text/css" href="font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="welcome-screen">
+          <p id="heading"><span id="s1">Welcome to </span><span id="s2">Songify</span></p>
+          <div class="login">
+            <!-- <h1>  Login </h1>
+            <h3> Welcome to SongifyEnter name to access your account </h3> -->
+            <div class="input-wrapper">
+              <form>
+                <input type="text" placeholder="Username" id="name-input" class="green">
+                <span id="errorBox1" class="hidden"><p> Your Username is not correct (Minimum - 3 characters) </p></span>
+                <input type="email" placeholder="Email Address" id="email" class="green">
+                <span id="errorBox2" class="hidden"><p> Your Email Address is not correct (Hint:test@acadview.com) </p></span>
+                <input type="password" placeholder="Password" id="password" class="green">
+                <span id="errorBox3" class="hidden"><p> Your password is not correct (Hint:JavascriptRocks) </p></span>
+                <button id="loginbtn" type="button"> Login </button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div class="main hidden">
+            <header>
+                <div class="right floated user-name"> </div>
+            </header>
+            <section class="content">
+                <audio src="song.mp3"></audio>
+                <table id="songs">
+                    <thead class="list-headers">
+                      <tr>
+                        <td> Title </td>
+                        <td> Artist </td>
+                        <td> Album </td>
+                        <td> Duration </td>
+                      </tr>
+                    </thead>
+                    <tbody class="song-list">
+                        <tr class="song" id="song1">
+                            <td class="song-name"> </td>
+                            <td class="song-artist"></td>
+                            <td class="song-album"></td>
+                            <td class="song-length"></td>
+                        </tr>
+                        <tr class="song" id="song2">
+                            <td class="song-name"> </td>
+                            <td class="song-artist"></td>
+                            <td class="song-album"></td>
+                            <td class="song-length"></td>
+                        </tr>
+                        <tr class="song" id="song3">
+                            <td class="song-name"> </td>
+                            <td class="song-artist"></td>
+                            <td class="song-album"></td>
+                            <td class="song-length"></td>
+                        </tr>
+                        <tr class="song" id="song4">
+                            <td class="song-name"> </td>
+                            <td class="song-artist"></td>
+                            <td class="song-album"></td>
+                            <td class="song-length"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- <div class="current-song-wrapper">
+                      <img class="current-song-image">
+                      <div>
+                        <p class="current-song-name"></p>
+                        <p class="current-song-album"></p>
+                     	</div>
+                    </div> -->
+            </section>
+            <!-- virtual drum kit & audio effects -->
+          <div class="special hidden">
+            <h1><kbd>VIRTUAL DRUM KIT</kbd></h1>
+            <div class="vdk">
+              <div class="keys">
+                  <div id="div65" class="key">
+                    <kbd>A</kbd>
+                    <span class="sound">clap</span>
+                  </div>
+                  <div id="div83" class="key">
+                    <kbd>S</kbd>
+                    <span class="sound">hihat</span>
+                  </div>
+                  <div id="div68" class="key">
+                    <kbd>D</kbd>
+                    <span class="sound">kick</span>
+                  </div>
+                  <div id="div70" class="key">
+                    <kbd>F</kbd>
+                    <span class="sound">openhat</span>
+                  </div>
+                  <div id="div71" class="key">
+                    <kbd>G</kbd>
+                    <span class="sound">boom</span>
+                  </div>
+                  <div id="div72" class="key">
+                    <kbd>H</kbd>
+                    <span class="sound">ride</span>
+                  </div>
+                  <div id="div74" class="key">
+                    <kbd>J</kbd>
+                    <span class="sound">snare</span>
+                  </div>
+                  <div id="div75" class="key">
+                    <kbd>K</kbd>
+                    <span class="sound">tom</span>
+                  </div>
+                  <div id="div76" class="key">
+                    <kbd>L</kbd>
+                    <span class="sound">tink</span>
+                  </div>
+              </div>
+                <audio  id="aud65" src="sounds/clap.wav"></audio>
+                <audio  id="aud83" src="sounds/hihat.wav"></audio>
+                <audio  id="aud68" src="sounds/kick.wav"></audio>
+                <audio  id="aud70" src="sounds/openhat.wav"></audio>
+                <audio  id="aud71" src="sounds/boom.wav"></audio>
+                <audio  id="aud72" src="sounds/ride.wav"></audio>
+                <audio  id="aud74" src="sounds/snare.wav"></audio>
+                <audio  id="aud75" src="sounds/tom.wav"></audio>
+                <audio  id="aud76" src="sounds/tink.wav"></audio>
+            </div>
+            <div class="note">
+              <p>Note : If Virtual Drum Kit is not working then please turn on/off capslock</p>
+            </div>
+
+            <h1><kbd>AUDIO EFFECTS</kbd></h1>
+            <div class="audEffect">
+              <div class="buttons">
+                <button type="button" class="clickable" id="btn1">WahWah</button>
+                <button type="button" class="clickable" id="btn2">Overdrive</button>
+                <button type="button" class="clickable" id="btn3">Filter</button>
+                <button type="button" class="clickable" id="btn4">Tremolo</button>
+                <button type="button" class="clickable" id="btn5">Compressor</button>
+                <button type="button" class="clickable" id="btn6">Chorus</button>
+                <button type="button" class="clickable" id="btn7">Delay</button>
+                <button type="button" class="clickable" id="btn8">Phaser</button>
+              </div>
+
+            </div>
+          </div>
+            <!--vdk and audio effects ends -->
+
+              <div class="footercls">
+                <div class="footerLeft">
+                  <div class="current-song-wrapper">
+                    <img class="current-song-image">
+                    <div>
+                      <p class="current-song-name"></p>
+                      <p class="current-song-album"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="controls">
+                    <div class="player-buttons">
+                        <i class="fa fa-random clickable disabled" aria-hidden="true"></i>
+                        <i class="fa fa-step-backward clickable" aria-hidden="true"></i>
+                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                        <i class="fa fa-step-forward clickable" aria-hidden="true"></i>
+                        <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
+                        <i class="fa fa-ioxhost clickable ivdk disabled" title="Virtual Drum Kit" aria-hidden="true"></i>
+                    </div>
+                    <div class="progress-wrapper">
+                        <span class="time-elapsed"> </span>
+                        <div class="player-progress">
+                            <div class="progress-filled"> </div>
+                        </div>
+                        <span class="song-duration"></span>
+                    </div>
+                </div>
+
+                <div class="footerRight">
+                      <i class="fa fa-volume-up clickable volume" aria-hidden="true"></i>
+                      <input type="range" onchange="setVolume()" id='volumebtn' min=0 max=1 step=0.01 value='1'>
+                </div>
+
+              </div>
+
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tunajs/1.0.0/tuna-min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
